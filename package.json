@@ -1,0 +1,28 @@
+{
+  "name": "sokoban-cli",
+  "author": "Ori Livni",
+  "version": "0.0.2",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">= 8"
+  },
+  "bin": {
+    "sokoban-cli": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "prepublish": "yarn run build && chmod +x dist/cli.js",
+    "start": "node $npm_package_main",
+    "watch": "rm -rf dist && tsc -w"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81"
+  },
+  "devDependencies": {
+    "@types/blessed": "^0.1.8",
+    "@types/node": "^8.0.54",
+    "prettier": "^1.8.2",
+    "typescript": "^2.6.2"
+  }
+}
