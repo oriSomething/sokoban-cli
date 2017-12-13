@@ -4,6 +4,10 @@
   "version": "0.0.2",
   "license": "MIT",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oriSomething/sokoban-cli"
+  },
   "engines": {
     "node": ">= 8"
   },
