@@ -2,7 +2,7 @@
 
 Play Sokoban from the CLI with custom maps.
 
-![Screen shot from level](/assets/screenshot-1.png)
+![Screen shot from level](https://raw.githubusercontent.com/orisomething/sokoban-cli/master/assets/screenshot-1.png)
 
 ## Install
 
