@@ -12,8 +12,16 @@ npm i -g sokoban-cli
 
 ## Play
 
+You can play maps from files:
+
 ```sh
 sokoban-cli map.txt
+```
+
+Or you can play maps from the web:
+
+```sh
+sokoban-cli https://raw.githubusercontent.com/orisomething/sokoban-cli/master/maps/test-maps.txt
 ```
 
 ### keys

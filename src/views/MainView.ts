@@ -5,23 +5,26 @@ import { LevelView } from "./LevelView";
 import { Level } from "../models/Level";
 import { removeChildren } from "../utils/removeChildren";
 import { getLevelsFromFile } from "../utils/getLevelsFromFile";
+import { getLevelsFromUrl } from "../utils/getLevelsFromUrl";
 
 export class MainView extends View {
-  private readonly filename: string;
+  private readonly uri: string;
   private selectionView: SelectionView | null | undefined;
   private levelView: LevelView | null | undefined;
   private levels: Array<Level> | null | undefined;
 
-  constructor(filename: string) {
+  constructor(uri: string) {
     super();
-    this.filename = filename;
+    this.uri = uri;
   }
 
   initialize() {
     super.initialize();
     this.key(["escape", "q", "Q", "C-c"], this.handleQuit);
     this.renderLoading();
-    getLevelsFromFile(this.filename).then(levels => this.handleLevelsLoaded(levels), error => this.renderError(error));
+
+    const levelsPromise = /^https?:\/\//.test(this.uri) ? getLevelsFromUrl(this.uri) : getLevelsFromFile(this.uri);
+    levelsPromise.then(levels => this.handleLevelsLoaded(levels), error => this.renderError(error));
   }
 
   destroy() {
