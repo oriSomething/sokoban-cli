@@ -21,6 +21,7 @@
     "watch": "rm -rf dist && tsc -w"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "blessed": "^0.1.81"
   },
   "devDependencies": {
