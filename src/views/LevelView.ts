@@ -36,7 +36,7 @@ export class LevelView extends View {
     this.moves = [level];
   }
 
-  initalize() {
+  initialize() {
     super.initialize();
     this.key(["escape", "q", "Q", "C-c"], this.handleQuit);
     this.key(["up", "right", "down", "left"], this.handleArrowKeyPressed);

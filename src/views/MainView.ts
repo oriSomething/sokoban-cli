@@ -103,7 +103,7 @@ export class MainView extends View {
     const selectionView = new SelectionView(levels);
     this.selectionView = selectionView;
     selectionView.addListener("select", this.handleLevelSelect);
-    selectionView.initalize();
+    selectionView.initialize();
     this.$view.append(selectionView.$view);
     this.$view.screen.render();
   }
@@ -113,7 +113,7 @@ export class MainView extends View {
     const levelView = new LevelView(level);
     this.levelView = levelView;
     levelView.once("quit", this.handleLevelQuit);
-    levelView.initalize();
+    levelView.initialize();
     this.$view.append(levelView.$view);
     this.$view.screen.render();
   }

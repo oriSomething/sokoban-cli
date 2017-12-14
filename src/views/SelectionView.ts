@@ -13,7 +13,7 @@ export class SelectionView extends View {
     this.levels = levels;
   }
 
-  initalize() {
+  initialize() {
     super.initialize();
     this.render();
     if (this.$levels) {
