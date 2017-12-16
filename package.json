@@ -22,10 +22,12 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "blessed": "^0.1.81"
+    "blessed": "^0.1.81",
+    "glob": "^7.1.2"
   },
   "devDependencies": {
     "@types/blessed": "^0.1.8",
+    "@types/glob": "^5.0.34",
     "@types/node": "^8.0.54",
     "prettier": "^1.8.2",
     "typescript": "^2.6.2"
