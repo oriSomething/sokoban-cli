@@ -1,7 +1,7 @@
 import blessed = require("blessed");
 import { MainView } from "./views/MainView";
 
-export default function main(uri: string) {
+export default function main(uri?: string) {
   const $screen = blessed.screen({
     smartCSR: true,
   });
@@ -18,5 +18,5 @@ export default function main(uri: string) {
 }
 
 if (require.main === module) {
-  main("maps/test-maps.txt");
+  main();
 }

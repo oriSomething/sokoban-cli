@@ -24,6 +24,13 @@ Or you can play maps from the web:
 sokoban-cli https://raw.githubusercontent.com/orisomething/sokoban-cli/master/maps/test-maps.txt
 ```
 
+And finally, you can put multiple maps files (`txt`) inside `~/.sokoban-cli` folder and play them by running the command
+without arguments:
+
+```sh
+sokoban-cli
+```
+
 ### keys
 
 * Arrows keys for moving

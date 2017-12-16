@@ -6,14 +6,15 @@ import { Level } from "../models/Level";
 import { removeChildren } from "../utils/removeChildren";
 import { getLevelsFromFile } from "../utils/getLevelsFromFile";
 import { getLevelsFromUrl } from "../utils/getLevelsFromUrl";
+import { getLevelsFromCommonStorage } from "../utils/getLevelsFromCommonStorage";
 
 export class MainView extends View {
-  private readonly uri: string;
+  private readonly uri: string | undefined;
   private selectionView: SelectionView | null | undefined;
   private levelView: LevelView | null | undefined;
   private levels: Array<Level> | null | undefined;
 
-  constructor(uri: string) {
+  constructor(uri?: string) {
     super();
     this.uri = uri;
   }
@@ -23,8 +24,13 @@ export class MainView extends View {
     this.key(["escape", "q", "Q", "C-c"], this.handleQuit);
     this.renderLoading();
 
-    const levelsPromise = /^https?:\/\//.test(this.uri) ? getLevelsFromUrl(this.uri) : getLevelsFromFile(this.uri);
-    levelsPromise.then(levels => this.handleLevelsLoaded(levels), error => this.renderError(error));
+    const { uri } = this;
+    if (uri !== undefined) {
+      const levelsPromise = /^https?:\/\//.test(uri) ? getLevelsFromUrl(uri) : getLevelsFromFile(uri);
+      levelsPromise.then(levels => this.handleLevelsLoaded(levels), error => this.renderError(error));
+    } else {
+      getLevelsFromCommonStorage().then(levels => this.handleLevelsLoaded(levels), error => this.renderError(error));
+    }
   }
 
   destroy() {
